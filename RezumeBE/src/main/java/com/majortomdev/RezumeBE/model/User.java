@@ -4,8 +4,11 @@ package com.majortomdev.RezumeBE.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 /* Created by JKinahan */
 @Entity
+@Table(name = "user")
 public class User {
 
     @Id

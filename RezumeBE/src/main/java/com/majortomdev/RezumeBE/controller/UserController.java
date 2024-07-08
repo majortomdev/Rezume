@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 
 /* Created by JKinahan */
 
@@ -22,6 +23,16 @@ public class UserController {
     @PostMapping("/user")
     User newUser(@RequestBody User newUser) {
         return userRepository.save(newUser);
+    }
+
+    @PostMapping("/userlogin")
+    User getUser(@RequestBody User loginUser){
+        User user = userRepository.checkIfUser(loginUser.getEmail(),loginUser.getPassword());
+        if(user==null){
+            return new User();
+        }
+        System.out.println(user.getUserName());
+        return user;
     }
 
     @GetMapping("/users")
