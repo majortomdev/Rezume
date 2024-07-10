@@ -7,5 +7,5 @@ import java.util.List;
 
 /* Created by JKinahan */
 public interface UrlObjectRepository extends JpaRepository<UrlObject, Long> {
-    List<UrlObject> findAllByUser(Long user);
+    List<UrlObject> findAllByUserId(Long userId);
 }
