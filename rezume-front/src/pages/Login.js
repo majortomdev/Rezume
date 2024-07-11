@@ -10,12 +10,14 @@ const Login = () => {
   const loginSubmit = async (e) => {
     e.preventDefault();
     try {
-      console.log("yyOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOyyyyyyyyy");
-      const response = await axios.post("http://localhost:8080/userlogin", {
-        email,
-        password,
-      });
-      setMessage(response.data);
+      const response = await axios.post(
+        "http://localhost:8080/api/users/userlogin",
+        {
+          email,
+          password,
+        }
+      );
+      setMessage("That went ok there jimmy");
     } catch (err) {
       setMessage("Something went wrong, please check your credentials.");
     }

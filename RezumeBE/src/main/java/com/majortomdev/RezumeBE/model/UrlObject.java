@@ -15,7 +15,7 @@ public class UrlObject {
 
     private String theUrl;
 
-    private Long user;
+    private Long userId;
 
     private boolean active;
 
@@ -35,12 +35,12 @@ public class UrlObject {
         this.theUrl = theUrl;
     }
 
-    public Long getUser() {
-        return user;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setUser(Long user) {
-        this.user = user;
+    public void setUserId(Long user) {
+        this.userId = user;
     }
 
     public boolean isActive() {

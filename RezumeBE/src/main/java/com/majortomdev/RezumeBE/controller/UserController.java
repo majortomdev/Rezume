@@ -13,13 +13,14 @@ import java.util.Optional;
 /* Created by JKinahan */
 
 @RestController
+@RequestMapping("/api/users")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
     @PostMapping("/user")
-    User newUser(@RequestBody User newUser) {
+    public User newUser(@RequestBody User newUser) {
         return userService.save(newUser);
     }
 
@@ -30,13 +31,13 @@ public class UserController {
         if(user!=null && user.getPassword().equals(loginUser.getPassword())){
             return user;
         }else {
-            throw new RuntimeException("Somethings not right chief");
+            throw new RuntimeException("Somethings not right chief, are your logins right?");
         }
     }
 
-    @GetMapping("/users")
-    List<User> getAllUsers() {
-        return userService.findByEmail());
-    }
+//    @GetMapping("/users")
+//    List<User> getAllUsers(String email) {
+//        return userService.findByEmail(email);
+//    }
 
 }
