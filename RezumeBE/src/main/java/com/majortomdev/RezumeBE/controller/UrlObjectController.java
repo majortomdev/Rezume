@@ -21,14 +21,18 @@ public class UrlObjectController {
     @Autowired
     private UrlObjectService urlObjectService;
 
-    @PostMapping("/saveUrl")
+    @CrossOrigin(origins = "http://localhost:3000")
+    @PostMapping("/saveurl")
     public UrlObject urlObj(@RequestBody UrlObject urlObjectTosave){
+        System.out.println("QQQ in add urlObj  the url:"+urlObjectTosave.getId());
         return urlObjectService.save(urlObjectTosave);
     }
 
-    @GetMapping("/urlsByUserId/{userId}")
-    public List<UrlObject> getAllUsersUrls(Long u) {
-        return urlObjectService.findAllByUserId(u);
+    @CrossOrigin
+    @GetMapping("/urlsbyuserid/{userId}")
+    public List<UrlObject> getAllUsersUrls(@PathVariable Long userId) {
+        System.out.println("LIST---LIST--LIST get list of urlObj");
+        return urlObjectService.findAllByUserId(userId);
     }
 
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import { Router, Route, Routes, Link, Switch } from "react-router-dom";
 import Login from "../pages/Login";
+import Home from "../pages/Home";
 
 export default function Navbar() {
   return (
@@ -37,6 +38,7 @@ export default function Navbar() {
 
       <Routes>
         <Route path="/Login" element={<Login />} />
+        <Route path="/Home" element={<Home />} />
       </Routes>
     </div>
   );

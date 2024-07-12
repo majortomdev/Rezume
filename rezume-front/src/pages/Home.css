@@ -1,0 +1,13 @@
+li {
+    list-style-type: none;
+    padding: 15px;
+    border-radius: 20px;
+    border-style: solid;
+    margin: 20px;
+    float: left;
+    background-color: darkkhaki;
+}
+
+.home-container {
+    width: 65%;
+}

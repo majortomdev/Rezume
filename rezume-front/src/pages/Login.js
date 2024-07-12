@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 //export default function Login() {
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+  const navigate = useNavigate();
 
   const loginSubmit = async (e) => {
     e.preventDefault();
@@ -17,7 +19,10 @@ const Login = () => {
           password,
         }
       );
+      console.log("Response data is:   " + response.data);
+      localStorage.setItem("user", JSON.stringify(response.data));
       setMessage("That went ok there jimmy");
+      navigate("/Home");
     } catch (err) {
       setMessage("Something went wrong, please check your credentials.");
     }
