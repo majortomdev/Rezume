@@ -5,6 +5,7 @@ import com.majortomdev.RezumeBE.model.User;
 import com.majortomdev.RezumeBE.repository.UserRepository;
 import com.majortomdev.RezumeBE.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,7 +20,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/user")
+    @PostMapping("/usersignup")
     public User newUser(@RequestBody User newUser) {
         return userService.save(newUser);
     }
@@ -34,6 +35,19 @@ public class UserController {
             throw new RuntimeException("Somethings not right chief, are your logins right?");
         }
     }
+
+
+//    @CrossOrigin
+//    @PostMapping("/signup")
+//    public ResponseEntity<User> signUpUser(@RequestBody User user) {
+//        User savedUser = userRepository.save(user);
+//        return ResponseEntity.status(201).body(savedUser);
+//    }
+//
+//
+
+
+
 
 //    @GetMapping("/users")
 //    List<User> getAllUsers(String email) {

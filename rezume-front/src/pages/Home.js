@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./Home.css";
+import "./Pages.css";
 
 const Home = () => {
   const [urlObjects, setUrlObjects] = useState([]);
@@ -32,7 +32,7 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <h2>Welcome, {user.email}</h2>
+      <h2>URLs saved for {user.userName}</h2>
       <form onSubmit={handleAddUrlObject}>
         <input
           type="url"

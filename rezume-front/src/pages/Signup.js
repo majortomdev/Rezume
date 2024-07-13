@@ -2,39 +2,40 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-//export default function Login() {
-const Login = () => {
+const Signup = () => {
   const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
-  const [message, setMessage] = useState("");
+  const [userName, setUserName] = useState("");
   const navigate = useNavigate();
 
-  const loginSubmit = async (e) => {
+  const signupSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:8080/api/users/userlogin",
+        "http://localhost:8080/api/users/usersignup",
         {
+          userName,
+          name,
           email,
           password,
         }
       );
       localStorage.setItem("user", JSON.stringify(response.data));
-      setMessage("That went ok there jimmy");
       navigate("/Home");
     } catch (err) {
-      setMessage("Something went wrong, please check your credentials.");
+      console.log(err);
     }
   };
   return (
-    <div className="login-container">
-      <form onSubmit={loginSubmit}>
+    <div className="signup-container">
+      <form onSubmit={signupSubmit}>
         <div class="form-group">
           <label for="inputEmail1">Email address</label>
           <input
             type="email"
             class="form-control"
-            id="inputEmail1"
+            id="inputEmail2"
             aria-describedby="emailHelp"
             placeholder="Enter email"
             onChange={(e) => setEmail(e.target.value)}
@@ -44,13 +45,33 @@ const Login = () => {
           </small>
         </div>
         <div class="form-group">
-          <label for="inputPassword1">Password</label>
+          <label for="inputPassword2">Password</label>
           <input
             type="password"
             class="form-control"
-            id="inputPassword1"
+            id="inputPassword2"
             placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <div class="form-group">
+          <label for="inputName2">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputName2"
+            placeholder="Name"
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
+        <div class="form-group">
+          <label for="userName">UserName</label>
+          <input
+            type="text"
+            class="form-control"
+            id="userName"
+            placeholder="Your account username"
+            onChange={(e) => setUserName(e.target.value)}
           />
         </div>
 
@@ -58,9 +79,8 @@ const Login = () => {
           Submit
         </button>
       </form>
-      <p>{message}</p>
     </div>
   );
 };
 
-export default Login;
+export default Signup;

@@ -1,0 +1,31 @@
+/* body {
+    background-image: '../../resources/IMG_2795.jpg';
+} */
+
+
+li {
+    list-style-type: none;
+    padding: 15px;
+    border-radius: 20px;
+    border-style: solid;
+    margin: 20px;
+    /*float: left;*/
+    background-color: darkkhaki;
+}
+
+.home-container {
+    margin-left: 15%;
+    width: 65%;
+}
+
+.large-container {
+    background-color: #d8d2ca;
+}
+
+.login-container, .signup-container {
+    margin-left: 15%;
+    width: 65%;
+}
+.navbar {
+    text-align: center;
+}
